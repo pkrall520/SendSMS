@@ -1,0 +1,12 @@
+package Phillip.Krall.SMSMailer;
+
+public class SMSMailer {
+
+	String SMTP_host;
+	int SMTP_port;
+	
+	String from;
+	String[] to;
+	String message;
+	String[] attachment;
+}

@@ -1,0 +1,82 @@
+package Phillip.Krall.SMSMailer;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+
+import Phillip.Krall.SMSMailer.exception.MessageNotOkay;
+
+public abstract class SMSMailer {
+
+	String SMTP_host = null;
+	int SMTP_port = -1;
+
+	InternetAddress from = null;
+	List<InternetAddress> to = new ArrayList<InternetAddress>();
+	String message =  null;
+	List<String> attachment = new ArrayList<String>();
+	String sender = null;
+	
+
+	abstract public void send() throws MessageNotOkay;
+	abstract public boolean OKToSend();
+	
+	public String getSender() {
+		return sender;
+	}
+
+	public void setSender(String sender) {
+		this.sender = sender;
+	}
+
+	protected String getSMTP_host() {
+		return SMTP_host;
+	}
+
+	protected void setSMTP_host(String sMTP_host) {
+		SMTP_host = sMTP_host;
+	}
+
+	protected int getSMTP_port() {
+		return SMTP_port;
+	}
+
+	protected void setSMTP_port(int sMTP_port) {
+		SMTP_port = sMTP_port;
+	}
+
+	public InternetAddress getFrom() {
+		return from;
+	}
+
+	public void setFrom(String from) throws AddressException {
+		this.from = new InternetAddress(from);
+	}
+
+	public List<InternetAddress> getTo() {
+		return to;
+	}
+
+	public void setTo(String to) {
+		this.to.add(to);
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public List<String> getAttachment() {
+		return attachment;
+	}
+
+	public void setAttachment(String attachment) {
+		this.attachment.add(attachment);
+	}
+
+}

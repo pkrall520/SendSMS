@@ -1,0 +1,13 @@
+package Phillip.Krall.SMSMailer;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {z
+    	GMailSMSMailer smsMailer = new GMailSMSMailer(GMailSMSMailer.);
+    }
+}

@@ -1,0 +1,66 @@
+package Phillip.Krall.SMSMailer;
+
+import java.util.Properties;
+
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+
+import Phillip.Krall.SMSMailer.exception.InvalidGMailPort;
+import Phillip.Krall.SMSMailer.exception.MessageNotOkay;
+
+public class GMailSMSMailer extends SMSMailer {
+
+	final int TLS = 587;
+	final int SSL = 465;
+	
+	final private String SMTP_host = "smtp.gmail.com";
+	private int SMTP_port = SSL;
+	
+	public GMailSMSMailer(int SMTP_port) throws InvalidGMailPort {
+		if( SMTP_port != TLS || SMTP_port != SSL ) {
+			throw new InvalidGMailPort("ERROR : Invalid Google Mail SMTP PORT. Use Constant TSL or SSL");			
+		}
+		this.SMTP_port =  SMTP_port;
+	}
+
+	@Override
+	public void send() throws MessageNotOkay {
+		if(!OKToSend())
+			throw new MessageNotOkay("ERROR : Not All Fields Were Filled Out Correctly");
+		
+		Properties props = new Properties();
+		
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.host", SMTP_host);
+		props.put("mail.smtp.port", super.getSMTP_port());
+		
+		if(super.getSMTP_port() == TLS) {
+			props.put("mail.smtp.starttls.enable", "true");
+		}
+		
+		else if(super.getSMTP_port() == SSL) {
+
+			props.put("mail.smtp.socketFactory.port", super.getSMTP_port());
+			props.put("mail.smtp.socketFactory.class",
+					"javax.net.ssl.SSLSocketFactory");
+		}
+		
+		Session session = Session.getDefaultInstance(props, 
+				new javax.mail.Authenticator(){
+					protected PasswordAuthentication getPasswordAuthentication(){
+						return new PasswordAuthentication(super.getDefaultUserName(), super.getP)
+					}
+		
+				}
+		);
+		
+	}
+
+	@Override
+	public boolean OKToSend() {
+		if(super.getFrom() != null && super.getMessage() != null && super.getSender() != null && super.getSMTP_host() !=  null && super.getSMTP_port() != -1 && (super.getSMTP_port() != SSL || super.getSMTP_port() != TLS)  && super.getTo().size() > 0)
+			return true;
+		return false;
+	}
+	
+}

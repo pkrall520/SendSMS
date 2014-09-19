@@ -1,0 +1,19 @@
+package Phillip.Krall.SMSMailer;
+
+import Phillip.Krall.SMSMailer.exception.InvalidGMailPort;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	try {
+			GMailSMSMailer smsMailer = new GMailSMSMailer(GMailSMSMailer.SSL);
+		} catch (InvalidGMailPort e) {
+			e.printStackTrace();
+		}
+    }
+}

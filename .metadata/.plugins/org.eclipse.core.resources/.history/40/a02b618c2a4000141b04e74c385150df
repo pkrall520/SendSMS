@@ -1,0 +1,7 @@
+package Phillip.Krall.SMSMailer;
+
+public class GMailSMSMailer extends SMSMailer{
+
+	
+	
+}

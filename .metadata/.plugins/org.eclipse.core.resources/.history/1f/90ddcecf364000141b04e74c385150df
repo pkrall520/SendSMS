@@ -1,0 +1,37 @@
+package Phillip.Krall.SMSMailer;
+
+import javax.mail.internet.AddressException;
+
+import Phillip.Krall.SMSMailer.exception.InvalidGMailPort;
+import Phillip.Krall.SMSMailer.exception.MessageNotOkay;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	try {
+			GMailSMSMailer smsMailer = new GMailSMSMailer(GMailSMSMailer.SSL);
+			
+			smsMailer.setTo("+17402603075", Sender.VERIZON);
+			smsMailer.setFrom("phllpkrall520@gmail.com");
+			smsMailer.setMessage("Hello");
+			smsMailer.setUsername("phllpkrall520@gmail.com");
+			smsMailer.setPassword("true Blue Moo9 3");
+			smsMailer.send();
+			
+		} catch (InvalidGMailPort e) {
+			e.printStackTrace();
+			
+		} catch (AddressException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (MessageNotOkay e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+}

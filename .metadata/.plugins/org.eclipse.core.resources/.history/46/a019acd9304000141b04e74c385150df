@@ -1,0 +1,34 @@
+package Phillip.Krall.SMSMailer;
+
+import Phillip.Krall.SMSMailer.exception.InvalidGMailPort;
+
+public class GMailSMSMailer extends SMSMailer {
+
+	final int TSL = 587;
+	final int SSL = 465;
+	
+	final String SMTP_host = "smtp.gmail.com";
+	int SMTP_port = SSL;
+	
+	public GMailSMSMailer(int SMTP_port) throws InvalidGMailPort {
+		if( SMTP_port != TSL || SMTP_port != SSL ) {
+			throw new InvalidGMailPort("ERROR : Invalid Google Mail SMTP PORT. Use Constant TSL or SSL");			
+		}
+		this.SMTP_port =  SMTP_port;
+	}
+
+	@Override
+	public void send() {
+		if(!OKToSend())
+			throw new MessageNotOkay("");
+		
+	}
+
+	@Override
+	public boolean OKToSend() {
+		if(super.getFrom() != null && super.getMessage() != null && super.getSender() != null && super.getSMTP_host() !=  null && super.getSMTP_port() != -1  && super.getTo().size() > 0)
+			return true;
+		return false;
+	}
+	
+}

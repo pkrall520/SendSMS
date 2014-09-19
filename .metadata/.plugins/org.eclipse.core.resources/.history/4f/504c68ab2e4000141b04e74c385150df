@@ -1,0 +1,5 @@
+package Phillip.Krall.SMSMailer;
+
+public enum Senders {
+
+}

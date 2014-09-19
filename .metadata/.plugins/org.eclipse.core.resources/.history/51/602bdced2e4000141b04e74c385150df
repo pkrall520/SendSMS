@@ -1,0 +1,15 @@
+package Phillip.Krall.SMSMailer;
+
+public enum Senders {
+		T_MOBILE ("@tmomail.net"),
+		VIRGIN_MOBILE (""),
+		CINGULAR (""),
+		SPRINT (""),
+		VERIZON ("");
+		
+	private String email;
+		
+	Senders(String emailAddress){
+		this.email = emailAddress;
+	}
+}

@@ -1,0 +1,56 @@
+package Phillip.Krall.SMSMailer;
+
+public class SMSMailer {
+
+	String SMTP_host;
+	int SMTP_port;
+	
+	String from;
+	List[] to;
+	String message;
+	List[] attachment;
+	
+	protected String getSMTP_host() {
+		return SMTP_host;
+	}
+	protected void setSMTP_host(String sMTP_host) {
+		SMTP_host = sMTP_host;
+	}
+	
+	protected int getSMTP_port() {
+		return SMTP_port;
+	}
+	protected void setSMTP_port(int sMTP_port) {
+		SMTP_port = sMTP_port;
+	}
+	
+	public String getFrom() {
+		return from;
+	}
+	public void setFrom(String from) {
+		this.from = from;
+	}
+	
+	public String[] getTo() {
+		return to;
+	}
+	public void setTo(Strin] to) {
+		this.to[] = to;
+	}
+	
+	
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public String[] getAttachment() {
+		return attachment;
+	}
+	public void setAttachment(String[] attachment) {
+		this.attachment = attachment;
+	}
+	
+	
+}

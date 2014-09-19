@@ -1,0 +1,84 @@
+package Phillip.Krall.SMSMailer;
+
+import java.util.List;
+import java.util.Map;
+
+public abstract class SMSMailer {
+
+	String SMTP_host;
+	int SMTP_port;
+
+	String from;
+	List<String> to;
+	String message;
+	List<String> attachment;
+	String sender;
+	
+	enum SENDERS {
+		T_MOBILE = "@tmomail.net",
+		VIRGIN_MOBILE,
+		CINGULAR,
+		SPRINT,
+		VERIZON
+		
+	}
+	
+	public String getSender() {
+		return sender;
+	}
+
+	public void setSender(String sender) {
+		this.sender = sender;
+	}
+
+	abstract public void send();
+
+	protected String getSMTP_host() {
+		return SMTP_host;
+	}
+
+	protected void setSMTP_host(String sMTP_host) {
+		SMTP_host = sMTP_host;
+	}
+
+	protected int getSMTP_port() {
+		return SMTP_port;
+	}
+
+	protected void setSMTP_port(int sMTP_port) {
+		SMTP_port = sMTP_port;
+	}
+
+	public String getFrom() {
+		return from;
+	}
+
+	public void setFrom(String from) {
+		this.from = from;
+	}
+
+	public List<String> getTo() {
+		return to;
+	}
+
+	public void setTo(String to) {
+		this.to.add(to);
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public List<String> getAttachment() {
+		return attachment;
+	}
+
+	public void setAttachment(String attachment) {
+		this.attachment.add(attachment);
+	}
+
+}

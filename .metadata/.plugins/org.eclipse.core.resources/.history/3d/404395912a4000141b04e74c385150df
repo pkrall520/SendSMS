@@ -1,0 +1,13 @@
+package Phillip.Krall.SMSMailer;
+
+public class GMailSMSMailer extends SMSMailer{
+
+	final int TSL = 587;
+	final int SSL = 465;
+	
+	String SMTP_host = "smtp.gmail.com";
+	int SMTP_port;
+	
+	
+	
+}

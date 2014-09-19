@@ -1,0 +1,11 @@
+package Phillip.Krall.SMSMailer;
+
+public class InvalidGMailPort extends Exception {
+
+	private static final long serialVersionUID = 1L;
+
+	public InvalidGMailPort(String message) {
+		super(message);
+	}
+	
+}
